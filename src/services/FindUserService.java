@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import objects.User;
+import servlets.Constants;
 
 public class FindUserService {
 
@@ -17,10 +18,12 @@ public class FindUserService {
     	    Statement stmt = null;
     	    try{
     	    	Class.forName("org.sqlite.JDBC");
-    	    	conn=DriverManager.getConnection("jdbc:sqlite:/C:/Users/Home/Desktop/Test2NDVersionDb.db");
+    	    	conn=DriverManager.getConnection("jdbc:sqlite:/C:/Users/Home/Desktop/TestV2.db");
     	        conn.setAutoCommit(false);
     	        stmt = conn.createStatement();
-    	        ResultSet rs = stmt.executeQuery("SELECT * FROM User WHERE Password = \"" + Password + "\" AND FacultyNumber =\"" +FacultyNumber + "\"");
+    	        ResultSet rs = stmt.executeQuery("SELECT * FROM User WHERE"
+    	        		+ " "+Constants.USER_PASSWORD+" = \"" + Password + 
+    	        		"\" AND "+Constants.USER_FACULTY_NUMBER+"=\"" +FacultyNumber + "\"");
 
     	        while (rs.next()){
     	        	user.id = rs.getInt("_id");

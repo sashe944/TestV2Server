@@ -3,6 +3,8 @@ package connection;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+
+import objects.Subject;
 import objects.User;
 
 public class DBConnection {
@@ -19,7 +21,7 @@ public class DBConnection {
 		  try{
 			  
 		      Class.forName("org.sqlite.JDBC");
-		      DatabaseConnection=DriverManager.getConnection("jdbc:sqlite:/C:/Users/Home/Desktop/Test2NDVersionDb.db");
+		      DatabaseConnection=DriverManager.getConnection("jdbc:sqlite:/C:/Users/Home/Desktop/TestV2.db");
 		      return true;
 		    }
 		      catch(Exception e)
@@ -39,4 +41,8 @@ public class DBConnection {
     	 User user = new User();
 		return user; 
     }
+	 public Subject getDiscipline(String Name,String Description){
+		 Subject discipline = new Subject();
+		 return discipline;
+	 }
 }

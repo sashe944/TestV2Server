@@ -14,7 +14,7 @@ import services.RegisterUserService;
 /**
  * Servlet implementation class UserRegisterServlet
  */
-@WebServlet("/UserRegisterServlet")
+@WebServlet("/"+Constants.USER_URL_REGISTER)
 public class UserRegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -35,7 +35,7 @@ public class UserRegisterServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		 User user = new User();
+		/* User user = new User();
 		
 		 String FacultyNumber = request.getParameter("FacultyNumber");
 		 String Name = request.getParameter("Name");
@@ -49,10 +49,10 @@ public class UserRegisterServlet extends HttpServlet {
 		  response.setContentType("application/json;charset=UTF-8");
 	      Gson gson = gson_builder.create();
 	      response.getWriter().write(gson.toJson(user));
-	  }
+    }
 	  else {
 	      request.setAttribute("error", "Registration was unsuccessful!");
-	  }	
+	  }	*/
 	}
 
 	/**
@@ -60,7 +60,30 @@ public class UserRegisterServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		   String jsonRequest = UserLogInServlet.getBody(request);
+		   
+			User reqCredentials = new GsonBuilder().create().fromJson(jsonRequest, User.class);
+			
+		  User user = new User();
+			
+		 String FacultyNumber = reqCredentials.FacultyNumber;
+		 String Name = reqCredentials.Name;
+		 String Password = reqCredentials.Password;
+		 String Gender = reqCredentials.Gender;
+         String UserTypeID = reqCredentials.UserTypeID;
+		  
+	     user = registerUserService.register(FacultyNumber, Name, Password, Gender, UserTypeID);
+	  
+	    if (user != null) {
+		  response.setContentType("application/json;charset=UTF-8");
+	      Gson gson = gson_builder.create();
+	      response.getWriter().write(gson.toJson(user));
+	    }
+	  else {
+	      request.setAttribute("error", "Registration was unsuccessful!");
+	  }
+	 
 	}
 
 }
