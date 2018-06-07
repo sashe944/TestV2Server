@@ -19,9 +19,7 @@ import objects.User;
 import services.FindUserService;
 
 
-/**
- * Servlet implementation class UserLogInServlet
- */
+
 @WebServlet("/"+Constants.USER_URL_LOGIN)
 public class UserLogInServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -34,7 +32,6 @@ public class UserLogInServlet extends HttpServlet {
      */
     public UserLogInServlet() {
         super();
-        // TODO Auto-generated constructor stub
         findUserService = new FindUserService();
     }
 
@@ -42,34 +39,16 @@ public class UserLogInServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		/*
-		 String Password = request.getParameter("Password");
-		 String FacultyNumber = request.getParameter("FacultyNumber");
-		 
-		 User user = findUserService.find(Password, FacultyNumber);
-		 
-		 if (user != null) {
-			  response.setContentType("application/json;charset=UTF-8");
-		      Gson gson = gson_builder.create();
-		      response.getWriter().write(gson.toJson(user));
-		  }
-		  else {
-		      request.setAttribute("error", "Unknown user, please try again");
-		  }	*/
-		
+	
 	}
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		String jsonRequest= getBody(request);
 		
 		User reqCredentials = new GsonBuilder().create().fromJson(jsonRequest, User.class);
 		
-		 String Password = reqCredentials.Password;
-		 String FacultyNumber = reqCredentials.FacultyNumber;
+		 String Password = reqCredentials.password;
+		 String FacultyNumber = reqCredentials.facultyNumber;
 		 
 		 User user = findUserService.find(Password, FacultyNumber);
 		 

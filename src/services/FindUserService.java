@@ -27,11 +27,11 @@ public class FindUserService {
 
     	        while (rs.next()){
     	        	user.id = rs.getInt("_id");
-    	        	user.FacultyNumber = rs.getString("FacultyNumber");
-    	        	user.Name = rs.getString("Name");
-    	        	user.Gender = rs.getString("Gender");
-    	        	user.Password = rs.getString("Password");
-    	        	user.UserTypeID = rs.getString("UserTypeID");
+    	        	user.facultyNumber = rs.getString("FacultyNumber");
+    	        	user.name = rs.getString("Name");
+    	        	user.gender = rs.getString("Gender");
+    	        	user.password = rs.getString("Password");
+    	        	user.userTypeID = rs.getString("UserTypeID");
     	        	
     	        }  
     	    }
@@ -47,6 +47,41 @@ public class FindUserService {
     			}
     		}
     	    System.out.println(user.toString());
+		return user;
+	}
+	
+	public User findUser(Long id){
+		  User user = new User();
+	  Connection conn = null;
+	    Statement stmt = null;
+	    try{
+	    	Class.forName("org.sqlite.JDBC");
+	    	conn=DriverManager.getConnection("jdbc:sqlite:/C:/Users/Home/Desktop/TestV2.db");
+	        conn.setAutoCommit(false);
+	        stmt = conn.createStatement();
+	        ResultSet rs = stmt.executeQuery("SELECT * FROM User WHERE _id = \"" + id + "\"");
+
+	        while (rs.next()){
+                
+	        	user.id = rs.getLong("_id");
+	        	user.name = rs.getString("Name");
+	        	user.password = rs.getString("Password");
+	        	user.gender = rs.getString("Gender");
+	        	
+	        }  
+	    }
+	    catch(Exception e){
+	    	e.printStackTrace();
+	    } finally {
+			try {
+				stmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	    System.out.println(user.toString());
 		return user;
 	}
 }

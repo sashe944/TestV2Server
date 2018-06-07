@@ -3,10 +3,10 @@ package objects;
 public class Subject {
 	
 	public long id;
-	public String Name,Description;
+	public String name,description;
 
 	@Override
 	 public String toString() {
-		return Name;
+		return name;
 	}
 }

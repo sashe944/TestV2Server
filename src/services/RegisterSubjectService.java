@@ -21,6 +21,7 @@ public Subject register(String Name,String Description){
 			
 			final String sql = "INSERT INTO Subject (Name,Description) VALUES (?,?)";
 			
+			 Class.forName("org.sqlite.JDBC");
 			 connection = DriverManager.getConnection("jdbc:sqlite:/C:/Users/Home/Desktop/TestV2.db");
 			
 				statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -31,7 +32,7 @@ public Subject register(String Name,String Description){
 				int affectedRows = statement.executeUpdate();
 				
 				  if (affectedRows == 0) {
-			            throw new SQLException("Creating user failed, no rows affected.");
+			            throw new SQLException("Creating subject failed, no rows affected.");
 			        }
 
 			        try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
@@ -49,17 +50,17 @@ public Subject register(String Name,String Description){
 				
 				
 
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} finally {
-				try {
-					statement.close();
-					connection.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
+			}  catch(Exception e){
+    	    	e.printStackTrace();
+    	    } finally {
+    			try {
+    				statement.close();
+    				connection.close();
+    			} catch (SQLException e) {
+    				
+    				e.printStackTrace();
+    			}
+    		}
 			return discipline;
 		
 	}

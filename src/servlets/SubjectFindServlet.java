@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -43,6 +44,8 @@ public class SubjectFindServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		String subjectId = request.getParameter("subjectId");
 		
+		if(subjectId!=null){
+		
         Subject discipline = findSubjectService.find(subjectId);
 		 
 		 if (discipline != null) {
@@ -52,13 +55,24 @@ public class SubjectFindServlet extends HttpServlet {
 		      response.getWriter().write(gson.toJson(discipline));
 		  }
 		  else {
-		      request.setAttribute("error", "Unknown user, please try again");
+		      request.setAttribute("error", "Unknown subject, please try again");
 		  }	
+		}else {
+			
+			 List<Subject> discipline = findSubjectService.findAllSubjects();
+			 
+			 if (discipline != null) {
+				  response.setContentType("application/json;charset=UTF-8");
+			      Gson gson = gson_builder.create();
+			      
+			      response.getWriter().write(gson.toJson(discipline));
+			  }
+			  else {
+			      request.setAttribute("error", "Unknown user, please try again");
+			  }	
+			
+		}
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	}

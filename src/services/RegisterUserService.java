@@ -18,6 +18,7 @@ public class RegisterUserService {
 			
 			final String sql = "INSERT INTO User (FacultyNumber,Name,Password,Gender,UserTypeID) VALUES (?,?,?,?,?)";
 			
+			Class.forName("org.sqlite.JDBC");
 			 connection = DriverManager.getConnection("jdbc:sqlite:/C:/Users/Home/Desktop/TestV2.db");
 			
 				statement = connection.prepareStatement(sql);
@@ -28,7 +29,6 @@ public class RegisterUserService {
 				statement.setString(4, Gender);
 				statement.setString(5,UserTypeID);
 				
-			
 				
 				statement.executeUpdate();
 				
@@ -37,17 +37,17 @@ public class RegisterUserService {
 				
 				System.out.println("register user: " + user);
 
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} finally {
-				try {
-					statement.close();
-					connection.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
+			} catch(Exception e){
+    	    	e.printStackTrace();
+    	    } finally {
+    			try {
+    				statement.close();
+    				connection.close();
+    			} catch (SQLException e) {
+    				
+    				e.printStackTrace();
+    			}
+    		}
 			return user;
 		
 	}

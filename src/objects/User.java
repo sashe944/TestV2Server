@@ -2,9 +2,9 @@ package objects;
 
 public class User {
   public long id;
-  public String FacultyNumber,Name,Gender,Password,UserTypeID;;
+  public String facultyNumber,name,gender,password,userTypeID;;
   
   public String toString() {
-		return Name;
+		return name;
 	}
 }

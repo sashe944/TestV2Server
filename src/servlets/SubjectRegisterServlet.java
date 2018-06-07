@@ -53,8 +53,8 @@ public class SubjectRegisterServlet extends HttpServlet {
 			
 		  Subject discipline = new Subject();
 		  
-		  String Name = create.Name;
-		  String Discipline = create.Description;
+		  String Name = create.name;
+		  String Discipline = create.description;
 		
 		  discipline = registerSubjectService.register(Name, Discipline);
 		  
