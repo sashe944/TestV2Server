@@ -29,7 +29,6 @@ public class FindQuestionTypeService {
 	  	        	QuestionType testType = new QuestionType();
 	  	        	testType.name = rs.getString("Name");
 	  	        	testType.id = rs.getInt("_id");
-	  	        	testType.points = rs.getInt("Points");
 	  	      	    questionTypes.add(testType);
 	  	        }  
 	  	    }

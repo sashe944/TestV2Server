@@ -1,7 +1,7 @@
 package objects;
 
 public class QuestionType {
-	public int id,points;
+	public int id;
 	public String name;
 	
 	 public String toString() {
