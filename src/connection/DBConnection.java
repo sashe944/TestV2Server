@@ -21,7 +21,7 @@ public class DBConnection {
 		  try{
 			  
 		      Class.forName("org.sqlite.JDBC");
-		      DatabaseConnection=DriverManager.getConnection("jdbc:sqlite:/C:/Users/Home/Desktop/TestV2.db");
+		      DatabaseConnection=DriverManager.getConnection("jdbc:sqlite:/C:/Users/PC/eclipse/jee-oxygen/eclipse/TestV2.db");
 		      return true;
 		    }
 		      catch(Exception e)

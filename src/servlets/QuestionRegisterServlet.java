@@ -12,10 +12,8 @@ import com.google.gson.GsonBuilder;
 
 import objects.PossibleAnswer;
 import objects.Question;
-import objects.TestHeader;
 import services.RegisterPossibleAnswersService;
 import services.RegisterQuestionService;
-import services.RegisterTestService;
 
 @WebServlet("/" + Constants.QUESTION_URL_REGISTER)
 public class QuestionRegisterServlet extends HttpServlet {

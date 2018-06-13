@@ -5,25 +5,20 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
 import objects.TestHeader;
-import objects.User;
 import services.FindTestService;
-import services.FindUserService;
 
 /**
  * Servlet implementation class TestFindServlet
  */
-@WebServlet("/TestFindServlet")
+@WebServlet("/"+Constants.TEST_URL_FIND)
 public class TestFindServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

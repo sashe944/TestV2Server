@@ -4,9 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
 import objects.TestHeader;
-import objects.User;
 
 public class RegisterTestService {
 public TestHeader register(String testName,String fromDate,String toDate,long gradeSingleAnswer,long gradeMultipleAnswer,long gradeFreeTextAnswer,long SubjectID,long UserID){
@@ -21,7 +19,7 @@ public TestHeader register(String testName,String fromDate,String toDate,long gr
 					+ "VALUES (?,?,?,?,?,?,?,?)";
 			
 			Class.forName("org.sqlite.JDBC");
-			 connection = DriverManager.getConnection("jdbc:sqlite:/C:/Users/Home/Desktop/TestV2.db");
+			 connection = DriverManager.getConnection("jdbc:sqlite:/C:/Users/PC/eclipse/jee-oxygen/eclipse/TestV2.db");
 			
 				statement = connection.prepareStatement(sql);
 				

@@ -6,9 +6,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.apache.jasper.tagplugins.jstl.core.Out;
-
 import objects.Teacher;
 import services.RegisterTeacherService;
 
@@ -33,16 +30,16 @@ public class TeacherRegisterServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");
-        Teacher teacher = new Teacher();
+        new Teacher();
 		
 		final String name = request.getParameter("name");
 		final String password = request.getParameter("password");
-		final String repassword = request.getParameter("repassword");
+		request.getParameter("repassword");
 		final String email = request.getParameter("email");
 		final String gender = request.getParameter("gender");
 		final Long userTypeId = Long.parseLong(request.getParameter("Teacher"));
 		
-		teacher = registerTeacherService.register(name, password, email, gender, userTypeId);
+		registerTeacherService.register(name, password, email, gender, userTypeId);
 		
 		
 	}

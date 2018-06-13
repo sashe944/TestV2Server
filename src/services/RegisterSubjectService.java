@@ -22,7 +22,7 @@ public Subject register(String Name,String Description){
 			final String sql = "INSERT INTO Subject (Name,Description) VALUES (?,?)";
 			
 			 Class.forName("org.sqlite.JDBC");
-			 connection = DriverManager.getConnection("jdbc:sqlite:/C:/Users/Home/Desktop/TestV2.db");
+			 connection = DriverManager.getConnection("jdbc:sqlite:/C:/Users/PC/eclipse/jee-oxygen/eclipse/TestV2.db");
 			
 				statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 				

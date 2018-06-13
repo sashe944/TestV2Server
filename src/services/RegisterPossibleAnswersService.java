@@ -5,11 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-
 import objects.PossibleAnswer;
-import objects.Question;
-
 
 public class RegisterPossibleAnswersService {
 
@@ -24,7 +20,7 @@ public PossibleAnswer register(PossibleAnswer possibleAnswer){
 					+ "VALUES (?,?,?,?)";
 			
 			 Class.forName("org.sqlite.JDBC");
-			 connection = DriverManager.getConnection("jdbc:sqlite:/C:/Users/Home/Desktop/TestV2.db");
+			 connection = DriverManager.getConnection("jdbc:sqlite:/C:/Users/PC/eclipse/jee-oxygen/eclipse/TestV2.db");
 			 
 				statement = connection.prepareStatement(sql);
 				

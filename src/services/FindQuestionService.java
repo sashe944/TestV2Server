@@ -5,8 +5,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 import objects.Question;
 import servlets.Constants;
 
@@ -18,7 +16,7 @@ public class FindQuestionService {
 	  	    Statement stmt = null;
 	  	    try{
 	  	    	Class.forName("org.sqlite.JDBC");
-	  	    	conn=DriverManager.getConnection("jdbc:sqlite:/C:/Users/Home/Desktop/TestV2.db");
+	  	    	conn=DriverManager.getConnection("jdbc:sqlite:/C:/Users/PC/eclipse/jee-oxygen/eclipse/TestV2.db");
 	  	        conn.setAutoCommit(false);
 	  	        stmt = conn.createStatement();
 	  	        ResultSet rs = stmt.executeQuery("SELECT * FROM Question WHERE "+Constants.QUESTION_ID +" = \"" + questionId + "\"");

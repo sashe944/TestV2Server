@@ -15,6 +15,9 @@ public class Constants {
 
 	public static final String TEACHER_URL_LOGIN="TeacherLogInServlet";
 	public static final String TEACHER_URL_REGISTER = "TeacherRegister";
+	
+	public static final String TEST_URL_FIND = "TestFindServlet";
+	public static final String TEST_URL_REGISTER = "TestRegisterServlet";
 
     
 	//USER COLUMN NAMES 

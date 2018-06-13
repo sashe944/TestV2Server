@@ -19,7 +19,7 @@ public class FindSubjectService {
   	    Statement stmt = null;
   	    try{
   	    	Class.forName("org.sqlite.JDBC");
-  	    	conn=DriverManager.getConnection("jdbc:sqlite:/C:/Users/Home/Desktop/TestV2.db");
+  	    	conn=DriverManager.getConnection("jdbc:sqlite:/C:/Users/PC/eclipse/jee-oxygen/eclipse/TestV2.db");
   	        conn.setAutoCommit(false);
   	        stmt = conn.createStatement();
   	        ResultSet rs = stmt.executeQuery("SELECT * FROM Subject WHERE "+Constants.SUBJECT_ID +" = \"" + subjectId + "\"");

@@ -6,19 +6,16 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
 import objects.TestHeader;
-import objects.User;
 import services.RegisterTestService;
-import services.RegisterUserService;
+
 
 /**
  * Servlet implementation class TestRegisterServlet
  */
-@WebServlet("/TestRegisterServlet")
+@WebServlet("/"+Constants.TEST_URL_REGISTER)
 public class TestRegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

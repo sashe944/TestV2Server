@@ -19,7 +19,7 @@ public class RegisterUserService {
 			final String sql = "INSERT INTO User (FacultyNumber,Name,Password,Gender,UserTypeID) VALUES (?,?,?,?,?)";
 			
 			Class.forName("org.sqlite.JDBC");
-			 connection = DriverManager.getConnection("jdbc:sqlite:/C:/Users/Home/Desktop/TestV2.db");
+			 connection = DriverManager.getConnection("jdbc:sqlite:/C:/Users/PC/eclipse/jee-oxygen/eclipse/TestV2.db");
 			
 				statement = connection.prepareStatement(sql);
 				

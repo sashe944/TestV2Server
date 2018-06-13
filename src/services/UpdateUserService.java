@@ -3,11 +3,8 @@ package services;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import objects.User;
-import servlets.Constants;
 
 public class UpdateUserService {
 	
@@ -22,7 +19,7 @@ public User update(Long id, String Name,String Password, String Gender){
 			final String sql = "UPDATE User SET Name = ? , Password = ? , Gender = ? WHERE _id =?";
 			
 			Class.forName("org.sqlite.JDBC");
-			 connection = DriverManager.getConnection("jdbc:sqlite:/C:/Users/Kokosa/Downloads/TestV2.db");
+			 connection = DriverManager.getConnection("jdbc:sqlite:/C:/Users/PC/eclipse/jee-oxygen/eclipse/TestV2.db");
 			
 				statement = connection.prepareStatement(sql);
 				
