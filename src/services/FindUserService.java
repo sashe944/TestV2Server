@@ -27,11 +27,11 @@ public class FindUserService {
 
     	        while (rs.next()){
     	        	user.id = rs.getInt("_id");
-    	        	user.facultyNumber = rs.getString("FacultyNumber");
-    	        	user.name = rs.getString("Name");
-    	        	user.gender = rs.getString("Gender");
-    	        	user.password = rs.getString("Password");
-    	        	user.userTypeID = rs.getString("UserTypeID");
+    	        	user.facultyNumber = rs.getString("facultyNumber");
+    	        	user.name = rs.getString("name");
+    	        	user.gender = rs.getString("gender");
+    	        	user.password = rs.getString("password");
+    	        	user.userTypeID = rs.getString("userTypeID");
     	        	
     	        }  
     	    }
@@ -56,7 +56,7 @@ public class FindUserService {
 	    Statement stmt = null;
 	    try{
 	    	Class.forName("org.sqlite.JDBC");
-	    	conn=DriverManager.getConnection("jdbc:sqlite:/C:/Users/Home/Desktop/TestV2.db");
+	    	conn=DriverManager.getConnection("jdbc:sqlite:C:/Users/PC/eclipse/jee-oxygen/eclipse/TestV2.db");
 	        conn.setAutoCommit(false);
 	        stmt = conn.createStatement();
 	        ResultSet rs = stmt.executeQuery("SELECT * FROM User WHERE _id = \"" + id + "\"");
@@ -64,9 +64,9 @@ public class FindUserService {
 	        while (rs.next()){
                 
 	        	user.id = rs.getLong("_id");
-	        	user.name = rs.getString("Name");
-	        	user.password = rs.getString("Password");
-	        	user.gender = rs.getString("Gender");
+	        	user.name = rs.getString("name");
+	        	user.password = rs.getString("password");
+	        	user.gender = rs.getString("gender");
 	        	
 	        }  
 	    }

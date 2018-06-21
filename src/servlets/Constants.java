@@ -1,5 +1,9 @@
 package servlets;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+
 public class Constants {
 	// Servlet URL 
 	public static final String USER_URL_LOGIN = "UserLogInServlet";
@@ -36,5 +40,11 @@ public class Constants {
 	public static final String QUESTION_NAME="Name";
 	public static final String QUESTION_TYPE_ID="QuestionTypeID";
 	public static final String TEST_HEADER_ID="TestHeaderID";
+	
+	// Possible Answers
+	public static final String POSSIBLE_ANSWER_ID = "_id";
+	public static final String QUESTION_ID_FK = "QuestionID";
+	
 	// Request params
 }
+

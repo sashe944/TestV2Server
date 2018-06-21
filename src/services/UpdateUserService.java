@@ -16,7 +16,7 @@ public User update(Long id, String Name,String Password, String Gender){
 		
 		try {
 			
-			final String sql = "UPDATE User SET Name = ? , Password = ? , Gender = ? WHERE _id =?";
+			final String sql = "UPDATE User SET name = ? , password = ? , gender = ? WHERE _id =?";
 			
 			Class.forName("org.sqlite.JDBC");
 			 connection = DriverManager.getConnection("jdbc:sqlite:/C:/Users/PC/eclipse/jee-oxygen/eclipse/TestV2.db");

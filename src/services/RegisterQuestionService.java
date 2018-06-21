@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
+
 import objects.Question;
 
 
@@ -38,9 +40,9 @@ public Question register(String Name,long QuestionTypeID,long TestHeaderID){
 
 			        try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
 			            if (generatedKeys.next()) {
-			                Long id = generatedKeys.getLong(1);
+			                Long questionId = generatedKeys.getLong(1);
 			                FindQuestionService findQuestionService = new FindQuestionService();
-			            	registeredQuestion =  findQuestionService.find(String.valueOf(id));
+			            	registeredQuestion =  findQuestionService.findByQuestionId(String.valueOf(questionId));
 							
 							System.out.println("register question: " + registeredQuestion);
 			            }

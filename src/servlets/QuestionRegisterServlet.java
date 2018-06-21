@@ -1,6 +1,8 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -53,14 +55,13 @@ public class QuestionRegisterServlet extends HttpServlet {
      Long QuestionTypeID = reqCredentials.questionTypeId;
      Long TestHeaderID = reqCredentials.testHeaderId;
 	  
-     Question registeredQuestion = registerQuestionService.register(questionName, QuestionTypeID, TestHeaderID);
-     reqCredentials.id = registeredQuestion.id;
-     
-     for( PossibleAnswer pa : reqCredentials.possibleAnswers) {
-    	 pa.questionId =  reqCredentials.id;
-    	registerPossibleAnswerService.register(pa);
-     }
-     
+  Question registeredQuestion = registerQuestionService.register(questionName, QuestionTypeID, TestHeaderID);
+        
+  for (PossibleAnswer pa : reqCredentials.possibleAnswers) {
+        	pa.questionId = registeredQuestion.id;
+        	registerPossibleAnswerService.register(pa);
+          }
+  
     if (registeredQuestion != null) {
 	  response.setContentType("application/json;charset=UTF-8");
       Gson gson = gson_builder.create();

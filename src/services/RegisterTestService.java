@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import objects.TestHeader;
 
 public class RegisterTestService {
-public TestHeader register(String testName,String fromDate,String toDate,long gradeSingleAnswer,long gradeMultipleAnswer,long gradeFreeTextAnswer,long SubjectID,long UserID){
+public TestHeader register(String testName,String fromDate,String toDate,long SubjectID,long UserID){
 		
 		Connection connection = null;
 		TestHeader registeredTest = null;
@@ -15,8 +15,8 @@ public TestHeader register(String testName,String fromDate,String toDate,long gr
 		
 		try {
 			
-			final String sql = "INSERT INTO TestHeader (testName,fromDate,toDate,gradeSingleAnswer,gradeMultipleAnswer,gradeFreeTextAnswer,subjectID,userID) "
-					+ "VALUES (?,?,?,?,?,?,?,?)";
+			final String sql = "INSERT INTO TestHeader (testName,fromDate,toDate,subjectID,userID) "
+					+ "VALUES (?,?,?,?,?)";
 			
 			Class.forName("org.sqlite.JDBC");
 			 connection = DriverManager.getConnection("jdbc:sqlite:/C:/Users/PC/eclipse/jee-oxygen/eclipse/TestV2.db");
@@ -26,11 +26,8 @@ public TestHeader register(String testName,String fromDate,String toDate,long gr
 				statement.setString(1,testName);
 				statement.setString(2, fromDate);
 				statement.setString(3, toDate);
-				statement.setLong(4, gradeSingleAnswer);
-				statement.setLong(5, gradeMultipleAnswer);
-				statement.setLong(6, gradeFreeTextAnswer);
-				statement.setLong(7,SubjectID);
-				statement.setLong(8,UserID);
+				statement.setLong(4,SubjectID);
+				statement.setLong(5,UserID);
 				
 				
 				

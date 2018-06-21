@@ -51,13 +51,10 @@ public class TestRegisterServlet extends HttpServlet {
 	 String testName = reqCredentials.testName;
 	 String fromDate = reqCredentials.fromDate;
 	 String toDate = reqCredentials.toDate;
-	 Long gradeSingleAnswer = reqCredentials.gradeSingleAnswer;
-	 Long gradeMultipleAnswer = reqCredentials.gradeMultipleAnswer;
-	 Long gradeFreeTextAnswer = reqCredentials.gradeFreeTextAnswer;
      Long subjectID = reqCredentials.subjectID;
      Long userID = reqCredentials.userID;
 	  
-     registeredTest = registerTestService.register(testName, fromDate, toDate, gradeSingleAnswer, gradeMultipleAnswer, gradeFreeTextAnswer, subjectID, userID);
+     registeredTest = registerTestService.register(testName, fromDate, toDate, subjectID, userID);
   
     if (registeredTest != null) {
 	  response.setContentType("application/json;charset=UTF-8");

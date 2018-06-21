@@ -1,6 +1,8 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import objects.Question;
+import services.FindPossibleAnswerService;
 import services.FindQuestionService;
+import services.RegisterPossibleAnswersService;
 
 /**
  * Servlet implementation class QuestionFindServlet
@@ -21,11 +25,13 @@ public class QuestionFindServlet extends HttpServlet {
 	private static GsonBuilder gson_builder = new GsonBuilder().serializeNulls().setDateFormat("MM/dd/yyyy");
 	   
     private FindQuestionService findQuestionService;
+    private FindPossibleAnswerService findPossibleAnswerService;
     
     public QuestionFindServlet() {
         super();
         // TODO Auto-generated constructor stub
         findQuestionService = new FindQuestionService();
+        findPossibleAnswerService = new FindPossibleAnswerService();
     }
 
 	/**
@@ -33,17 +39,22 @@ public class QuestionFindServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String questionId = request.getParameter("_id");
+		String testId = request.getParameter("testId");
 		
-		if(questionId!=null){
+		if(testId!=null){
 		
-        Question discipline = findQuestionService.find(questionId);
+        List<Question> questions = findQuestionService.findByTestHeaderId(testId);
 		 
-		 if (discipline != null) {
+		 if (questions != null) {
 			  response.setContentType("application/json;charset=UTF-8");
 		      Gson gson = gson_builder.create();
 		      
-		      response.getWriter().write(gson.toJson(discipline));
+		      
+		      for (Question q : questions) {
+		    	  q.possibleAnswers = findPossibleAnswerService.findByQuestionId(q.id);
+		      }
+		      
+		      response.getWriter().write(gson.toJson(questions));
 		  }
 		}
 	}

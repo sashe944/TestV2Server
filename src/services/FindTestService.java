@@ -33,9 +33,6 @@ public class FindTestService {
     	        	registeredTest.testName = rs.getString("testName");
     	        	registeredTest.fromDate = rs.getString("fromDate");
     	        	registeredTest.toDate = rs.getString("toDate");
-    	        	registeredTest.gradeSingleAnswer = rs.getLong("gradeSingleAnswer");
-    	        	registeredTest.gradeMultipleAnswer = rs.getLong("gradeMultipleAnswer");
-    	        	registeredTest.gradeFreeTextAnswer = rs.getLong("gradeFreeTextAnswer");
     	        	registeredTest.subjectID = rs.getLong("subjectID");
     	        	registeredTest.userID = rs.getLong("userID");
     	        	testHeaders.add(registeredTest);
@@ -62,7 +59,7 @@ public class FindTestService {
     	    Statement stmt = null;
     	    try{
     	    	Class.forName("org.sqlite.JDBC");
-    	    	conn=DriverManager.getConnection("jdbc:sqlite:/C:/Users/Home/Desktop/TestV2.db");
+    	    	conn=DriverManager.getConnection("jdbc:sqlite:/C:/Users/PC/eclipse/jee-oxygen/eclipse/TestV2.db");
     	        conn.setAutoCommit(false);
     	        stmt = conn.createStatement();
     	        ResultSet rs = stmt.executeQuery("SELECT * FROM TestHeader WHERE"
@@ -74,9 +71,6 @@ public class FindTestService {
     	        	registeredTest.testName = rs.getString("testName");
     	        	registeredTest.fromDate = rs.getString("fromDate");
     	        	registeredTest.toDate = rs.getString("toDate");
-    	        	registeredTest.gradeSingleAnswer = rs.getLong("gradeSingleAnswer");
-    	        	registeredTest.gradeMultipleAnswer = rs.getLong("gradeMultipleAnswer");
-    	        	registeredTest.gradeFreeTextAnswer = rs.getLong("gradeFreeTextAnswer");
     	        	registeredTest.subjectID = rs.getLong("subjectID");
     	        	registeredTest.userID = rs.getLong("userID");
     	        }  
