@@ -15,9 +15,7 @@ import services.FindPossibleAnswerService;
 import services.FindQuestionService;
 import services.RegisterPossibleAnswersService;
 
-/**
- * Servlet implementation class QuestionFindServlet
- */
+
 @WebServlet("/"+Constants.QUESTION_URL_FIND)
 public class QuestionFindServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
