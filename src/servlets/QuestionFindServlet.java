@@ -29,7 +29,6 @@ public class QuestionFindServlet extends HttpServlet {
     
     public QuestionFindServlet() {
         super();
-        // TODO Auto-generated constructor stub
         findQuestionService = new FindQuestionService();
         findPossibleAnswerService = new FindPossibleAnswerService();
     }
