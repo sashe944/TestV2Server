@@ -29,7 +29,7 @@ public class FindTeacherService {
     	        	teacher.gender = rs.getString("Gender");
     	        	teacher.password = rs.getString("Password");
     	        	teacher.usertypeid = rs.getString("UserTypeID");
-    	        	
+    	        	return teacher;
     	        }  
     	    }
     	    catch(Exception e){
@@ -43,7 +43,7 @@ public class FindTeacherService {
     			}
     		}
     	    System.out.println(teacher.toString());
-		return teacher;
+		return null;
 	}
 
 }

@@ -14,7 +14,7 @@ public class Constants {
 	public static final String SUBJECT_URL_REGISTRATION = "SubjectRegisterServlet";
 	
 	public static final String QUESTION_URL_REGISTER = "QuestionRegisterServlet";
-	public static final String QUESTION_URL_FIND = "QuestionFindServlet";
+		public static final String QUESTION_URL_FIND = "QuestionFindServlet";
 	public static final String QUESTION_TYPE_URL_FIND = "QuestionTypeFindServlet";
 
 	public static final String TEACHER_URL_LOGIN="TeacherLogInServlet";
@@ -23,7 +23,8 @@ public class Constants {
 	public static final String TEST_URL_FIND = "TestFindServlet";
 	public static final String TEST_URL_REGISTER = "TestRegisterServlet";
 
-    
+	public static final String ANSWER_URL_REGISTER = "AnswerRegisterServlet";
+	
 	//USER COLUMN NAMES 
 	public static final String USER_ID = "_id";
 	// SUBJECT COLUMN NAMES

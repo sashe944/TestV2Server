@@ -28,7 +28,6 @@ public class QuestionRegisterServlet extends HttpServlet {
    
     public QuestionRegisterServlet() {
         super();
-        // TODO Auto-generated constructor stub
         registerQuestionService = new RegisterQuestionService();
         registerPossibleAnswerService = new RegisterPossibleAnswersService();
     }

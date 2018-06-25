@@ -37,7 +37,6 @@ public class TeacherViewDetailsServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//System.out.println("request: " + request.getParameter("id"));
 		Integer id = Integer.parseInt(request.getParameter("id"));
 			
 			if(id!=null){

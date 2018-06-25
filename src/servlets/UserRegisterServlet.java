@@ -71,7 +71,7 @@ public class UserRegisterServlet extends HttpServlet {
 		 String Name = reqCredentials.name;
 		 String Password = reqCredentials.password;
 		 String Gender = reqCredentials.gender;
-         String UserTypeID = reqCredentials.userTypeID;
+         Long UserTypeID = reqCredentials.userTypeID;
 		  
 	     user = registerUserService.register(FacultyNumber, Name, Password, Gender, UserTypeID);
 	  

@@ -8,7 +8,7 @@ import objects.User;
 
 public class RegisterUserService {
 
-	public User register(String FacultyNumber,String Name,String Password, String Gender,String UserTypeID){
+	public User register(String FacultyNumber,String Name,String Password, String Gender,long UserTypeID){
 		
 		Connection connection = null;
 		User user = null;
@@ -27,7 +27,7 @@ public class RegisterUserService {
 				statement.setString(2, Name);
 				statement.setString(3, Password);
 				statement.setString(4, Gender);
-				statement.setString(5,UserTypeID);
+				statement.setLong(5,UserTypeID);
 				
 				
 				statement.executeUpdate();

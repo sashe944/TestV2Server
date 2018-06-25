@@ -31,8 +31,8 @@ public class FindUserService {
     	        	user.name = rs.getString("name");
     	        	user.gender = rs.getString("gender");
     	        	user.password = rs.getString("password");
-    	        	user.userTypeID = rs.getString("userTypeID");
-    	        	
+    	        	user.userTypeID = rs.getLong("userTypeID");
+    	        	return user;
     	        }  
     	    }
     	    catch(Exception e){
@@ -47,7 +47,7 @@ public class FindUserService {
     			}
     		}
     	    System.out.println(user.toString());
-		return user;
+		return null;
 	}
 	
 	public User findUser(Long id){
